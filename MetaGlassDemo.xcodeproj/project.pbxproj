@@ -6,13 +6,32 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		50B27F142F4D3ECB00C9B216 /* MWDATCamera in Frameworks */ = {isa = PBXBuildFile; productRef = 50B27F132F4D3ECB00C9B216 /* MWDATCamera */; };
+		50B27F162F4D3ECB00C9B216 /* MWDATCore in Frameworks */ = {isa = PBXBuildFile; productRef = 50B27F152F4D3ECB00C9B216 /* MWDATCore */; };
+		50B27F182F4D3ECB00C9B216 /* MWDATMockDevice in Frameworks */ = {isa = PBXBuildFile; productRef = 50B27F172F4D3ECB00C9B216 /* MWDATMockDevice */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		50B27F022F4D396800C9B216 /* MetaGlassDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetaGlassDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		50B27F112F4D3C3500C9B216 /* Exceptions for "MetaGlassDemo" folder in "MetaGlassDemo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 50B27F012F4D396800C9B216 /* MetaGlassDemo */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		50B27F042F4D396800C9B216 /* MetaGlassDemo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				50B27F112F4D3C3500C9B216 /* Exceptions for "MetaGlassDemo" folder in "MetaGlassDemo" target */,
+			);
 			path = MetaGlassDemo;
 			sourceTree = "<group>";
 		};
@@ -23,6 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50B27F142F4D3ECB00C9B216 /* MWDATCamera in Frameworks */,
+				50B27F182F4D3ECB00C9B216 /* MWDATMockDevice in Frameworks */,
+				50B27F162F4D3ECB00C9B216 /* MWDATCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +87,9 @@
 			);
 			name = MetaGlassDemo;
 			packageProductDependencies = (
+				50B27F132F4D3ECB00C9B216 /* MWDATCamera */,
+				50B27F152F4D3ECB00C9B216 /* MWDATCore */,
+				50B27F172F4D3ECB00C9B216 /* MWDATMockDevice */,
 			);
 			productName = MetaGlassDemo;
 			productReference = 50B27F022F4D396800C9B216 /* MetaGlassDemo.app */;
@@ -94,6 +119,9 @@
 			);
 			mainGroup = 50B27EF92F4D396800C9B216;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				50B27F122F4D3ECB00C9B216 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 50B27F032F4D396800C9B216 /* Products */;
 			projectDirPath = "";
@@ -256,6 +284,8 @@
 				DEVELOPMENT_TEAM = LFVDYK6YAA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MetaGlassDemo/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Needed to connect to Meta Wearables";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -288,6 +318,8 @@
 				DEVELOPMENT_TEAM = LFVDYK6YAA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MetaGlassDemo/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Needed to connect to Meta Wearables";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -332,6 +364,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		50B27F122F4D3ECB00C9B216 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/meta-wearables-dat-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		50B27F132F4D3ECB00C9B216 /* MWDATCamera */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50B27F122F4D3ECB00C9B216 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
+			productName = MWDATCamera;
+		};
+		50B27F152F4D3ECB00C9B216 /* MWDATCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50B27F122F4D3ECB00C9B216 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
+			productName = MWDATCore;
+		};
+		50B27F172F4D3ECB00C9B216 /* MWDATMockDevice */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50B27F122F4D3ECB00C9B216 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
+			productName = MWDATMockDevice;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 50B27EFA2F4D396800C9B216 /* Project object */;
 }

@@ -16,6 +16,13 @@
 		</dict>
 		<dict/>
 	</array>
+	<key>MWDAT</key>
+	<dict>
+		<key>AppLinkURLScheme</key>
+		<string>metaglass://</string>
+		<key>MetaAppID</key>
+		<string>0</string>
+	</dict>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-peripheral</string>
@@ -25,15 +32,5 @@
 	<array>
 		<string>com.meta.ar.wearable</string>
 	</array>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Needed to connect to Meta Wearables</string>
-
-	<key>MWDAT</key>
-<dict>
-  <key>AppLinkURLScheme</key>
-  <string>myexampleapp://</string>
-  <key>MetaAppID</key>
-  <string>0</string>
-</dict>
 </dict>
 </plist>

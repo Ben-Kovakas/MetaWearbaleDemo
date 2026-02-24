@@ -1,84 +1,66 @@
-//
-//  ContentView.swift
-//  MetaGlassDemo
-//
-//  Created by James Benjamin Kovakas Jr on 2/23/26.
-//
-
 import SwiftUI
 import MWDATCamera
 import MWDATCore
 
 struct ContentView: View {
-    @State private var wearableInitialized: Bool = false
-//    @State private var wearable:
-    @State private var wearableInitializationError: Error? = nil
+    // Track the actual state of the connection, not just a boolean
+    @State private var connectionState: String = "Unregistered"
+    @State private var registrationError: Error? = nil
     
     var body: some View {
-        VStack {
-            if wearableInitialized {
-                Text("Wearable initialized ✅")
-            } else if let error = wearableInitializationError {
-                Text(verbatim: "Oh no, an error occured during initialization: \(String(describing: error))")
+        VStack(spacing: 20) {
+            Text("Meta Glasses Demo")
+                .font(.headline)
+            
+            // Display dynamic state
+            if let error = registrationError {
+                Text("Error: \(error.localizedDescription)")
+                    .foregroundColor(.red)
             } else {
-                Text("Awaiting wearable initialization...")
+                Text("Status: \(connectionState)")
+                    .foregroundColor(connectionState == "Registered" ? .green : .primary)
             }
+            
+            Button("Register Device") {
+                Task {
+                    await triggerRegistration()
+                }
+            }
+            .buttonStyle(.borderedProminent)
+            .disabled(connectionState == "Registered")
         }
         .padding()
         .task {
-            do {
-                let success = try await initializeWearableDevice()
-                await MainActor.run {
-                    self.wearableInitialized = success
-                    self.wearableInitializationError = nil
-                }
-            } catch {
-                await MainActor.run {
-                    self.wearableInitialized = false
-                    self.wearableInitializationError = error
-                }
+            // Start listening for state changes as soon as the view appears
+            await observeWearableState()
+        }
+    }
+    
+    // MARK: - SDK Methods
+    
+    private func triggerRegistration() async {
+        do {
+            registrationError = nil
+            // This just kicks off the jump to the Meta app
+            try await Wearables.shared.startRegistration()
+        } catch {
+            await MainActor.run {
+                self.registrationError = error
             }
         }
     }
     
-    func initializeWearableDevice() async throws -> Bool {
-        try configureWearables() // configure wearable
-        try await startRegistration() // register device
-        return true
+    private func observeWearableState() async {
+        // This is the crucial part: it listens for updates continuously
+        for await state in Wearables.shared.registrationStateStream() {
+            await MainActor.run {
+                // Update your UI based on what the stream reports
+                self.connectionState = String(describing: state)
+            }
+        }
     }
-    
-    func deinitWearableDevice() async throws -> Bool {
-        try await startUnregistration()
-        return true
-    }
-    
-    private func configureWearables() throws(WearableError) {
-      do {
-        try Wearables.configure()
-      } catch {
-          throw .configurationFailed(error)
-      }
-    }
-    
-    
-    func startRegistration() async throws {
-      try await Wearables.shared.startRegistration()
-    }
-
-    func startUnregistration() async throws {
-      try await Wearables.shared.startUnregistration()
-    }
-
-    func handleWearablesCallback(url: URL) async throws {
-      _ = try await Wearables.shared.handleUrl(url)
-    }
-}
-
-enum WearableError: Error {
-    case configurationFailed(_ error: Error?)
 }
 
 #Preview {
     ContentView()
 }
-

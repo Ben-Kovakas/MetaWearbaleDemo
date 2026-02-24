@@ -17,7 +17,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             if wearableInitialized {
-                
+                Text("Wearable initialized ✅")
             } else if let error = wearableInitializationError {
                 Text(verbatim: "Oh no, an error occured during initialization: \(String(describing: error))")
             } else {
@@ -27,15 +27,15 @@ struct ContentView: View {
         .padding()
         .task {
             do {
-                let success = try? await initializeWearableDevice()
-                if let s = success {
-                    DispatchQueue.main.async {
-                        self.wearableInitialized = s
-                    }
+                let success = try await initializeWearableDevice()
+                await MainActor.run {
+                    self.wearableInitialized = success
+                    self.wearableInitializationError = nil
                 }
             } catch {
-                DispatchQueue.main.async {
-                    wearableInitializationError = error
+                await MainActor.run {
+                    self.wearableInitialized = false
+                    self.wearableInitializationError = error
                 }
             }
         }
@@ -44,10 +44,12 @@ struct ContentView: View {
     func initializeWearableDevice() async throws -> Bool {
         try configureWearables() // configure wearable
         try await startRegistration() // register device
+        return true
     }
     
     func deinitWearableDevice() async throws -> Bool {
         try await startUnregistration()
+        return true
     }
     
     private func configureWearables() throws(WearableError) {

@@ -21,7 +21,7 @@
 		<key>AppLinkURLScheme</key>
 		<string>metaglass://</string>
 		<key>MetaAppID</key>
-		<string>0</string>
+		<integer>0</integer>
 	</dict>
 	<key>UIBackgroundModes</key>
 	<array>

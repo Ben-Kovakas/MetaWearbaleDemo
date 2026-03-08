@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "69E5B607-DD9F-4CCF-B12D-86ADE536A049"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C1E9BC07-6FA5-41B2-99B5-4C348726CF5F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MetaGlassDemo/MetaGlassDemoApp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "C1E9BC07-6FA5-41B2-99B5-4C348726CF5F - fe4201a5978853fe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 () async -&gt; () in closure #1 (Foundation.URL) -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onOpenURL(perform: (Foundation.URL) -&gt; ()) -&gt; some&gt;&gt;.0 in MetaGlassDemo.MetaGlassDemoApp.body.getter : some"
+                  moduleName = "MetaGlassDemo.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benko/Developer/MetaGlassesProject/MetaGlassDemo/MetaGlassDemo/MetaGlassDemoApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27">
+               </Location>
+               <Location
+                  uuid = "C1E9BC07-6FA5-41B2-99B5-4C348726CF5F - a7bf152fdf9535f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 () async -&gt; () in closure #1 (Foundation.URL) -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onOpenURL(perform: (Foundation.URL) -&gt; ()) -&gt; some&gt;&gt;.0 in MetaGlassDemo.MetaGlassDemoApp.body.getter : some"
+                  moduleName = "MetaGlassDemo.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/benko/Developer/MetaGlassesProject/MetaGlassDemo/MetaGlassDemo/MetaGlassDemoApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

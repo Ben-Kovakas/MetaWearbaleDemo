@@ -14,7 +14,10 @@
 				<string>metaglass</string>
 			</array>
 		</dict>
-		<dict/>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fb-viewapp</string>
 	</array>
 	<key>MWDAT</key>
 	<dict>
@@ -23,6 +26,8 @@
 		<key>MetaAppID</key>
 		<integer>0</integer>
 	</dict>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Needed to connect to Meta Wearables.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-peripheral</string>
